@@ -1,0 +1,13 @@
+{
+	"extends": [
+		"tslint:recommended",
+		"tslint-react"
+	],
+	"rules": {
+		"prettier": true,
+		"interface-name": false,
+		"quotemark": [true, "single", "jsx-double"],
+		"ordered-imports": false,
+		"jsx-wrap-multiline": false
+	}
+}
