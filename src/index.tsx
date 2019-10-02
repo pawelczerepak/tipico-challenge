@@ -1,7 +1,9 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {createGlobalStyle} from 'styled-components';
+import { Provider } from 'react-redux';
+import configureStore from './store';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,9 +15,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 ReactDOM.render(
-    <Fragment>
+    <Provider store={configureStore()}>
         <GlobalStyle/>
         <App/>
-    </Fragment>,
+    </Provider>,
     document.getElementById('root'),
 );

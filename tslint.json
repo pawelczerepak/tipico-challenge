@@ -8,6 +8,7 @@
 		"interface-name": false,
 		"quotemark": [true, "single", "jsx-double"],
 		"ordered-imports": false,
-		"jsx-wrap-multiline": false
+		"jsx-wrap-multiline": false,
+		"object-literal-sort-keys": false
 	}
 }
