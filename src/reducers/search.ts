@@ -1,4 +1,5 @@
 import {AxiosAction, Params, Response} from '../types';
+import {SEARCH_REPOSITORIES, SEARCH_REPOSITORIES_FAIL, SEARCH_REPOSITORIES_SUCCESS} from '../constants/ActionTypes';
 
 const initialState = {
     totalCount: 0,
@@ -8,7 +9,7 @@ const initialState = {
 };
 export default function search(state: any = initialState, {type, payload, error, meta}: AxiosAction) {
     switch (type) {
-        case 'SEARCH_REPOSITORIES': {
+        case SEARCH_REPOSITORIES: {
             const {params}: { params: Params } = meta;
             return ({
                 ...state,
@@ -18,7 +19,7 @@ export default function search(state: any = initialState, {type, payload, error,
                 totalCount: 0,
             });
         }
-        case 'SEARCH_REPOSITORIES_SUCCESS': {
+        case SEARCH_REPOSITORIES_SUCCESS: {
             const {data}: { data: Response } = payload;
             const {params}: { params: Params } = meta;
 
@@ -31,7 +32,7 @@ export default function search(state: any = initialState, {type, payload, error,
                 totalCount: data.total_count,
             });
         }
-        case 'SEARCH_REPOSITORIES_FAIL': {
+        case SEARCH_REPOSITORIES_FAIL: {
             return ({
                 ...state,
                 error,
