@@ -1,13 +1,11 @@
-import configureMockStore, {MockStoreEnhanced} from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import {MockStoreEnhanced} from 'redux-mock-store';
 import {searchRepositories} from '../actions/search';
 import MockAdapter from 'axios-mock-adapter';
-import axiosMiddleware from 'redux-axios-middleware';
 import client from '../apiClient';
 import {SEARCH_REPOSITORIES, SEARCH_REPOSITORIES_FAIL, SEARCH_REPOSITORIES_SUCCESS} from '../constants/ActionTypes';
+import {mockStore} from '../setupTests';
 
 const mock = new MockAdapter(client);
-const mockStore = configureMockStore([thunk, axiosMiddleware(client)]);
 
 describe('Search repositories', () => {
     let store: MockStoreEnhanced<unknown, {}>;

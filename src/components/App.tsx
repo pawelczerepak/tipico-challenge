@@ -1,8 +1,11 @@
 import React from 'react';
+import SearchInput from './SearchInput';
 
 const App: React.FC = () => {
   return (
-    <div/>
+    <div>
+        <SearchInput/>
+    </div>
   );
 };
 
