@@ -1,5 +1,6 @@
 import {AxiosAction, Params, Response} from '../types';
 import {SEARCH_REPOSITORIES, SEARCH_REPOSITORIES_FAIL, SEARCH_REPOSITORIES_SUCCESS} from '../constants/ActionTypes';
+import {AnyAction} from 'redux';
 
 const initialState = {
     totalCount: 0,
@@ -7,9 +8,10 @@ const initialState = {
     pages: {},
     error: null,
 };
-export default function search(state: any = initialState, {type, payload, error, meta}: AxiosAction) {
-    switch (type) {
+export default function search(state: any = initialState, action: AnyAction) {
+    switch (action.type) {
         case SEARCH_REPOSITORIES: {
+            const {meta} = action as AxiosAction;
             const {params}: { params: Params } = meta;
             return ({
                 ...state,
@@ -20,6 +22,7 @@ export default function search(state: any = initialState, {type, payload, error,
             });
         }
         case SEARCH_REPOSITORIES_SUCCESS: {
+            const {payload, meta} = action as AxiosAction;
             const {data}: { data: Response } = payload;
             const {params}: { params: Params } = meta;
 
@@ -33,6 +36,7 @@ export default function search(state: any = initialState, {type, payload, error,
             });
         }
         case SEARCH_REPOSITORIES_FAIL: {
+            const {error} = action as AxiosAction;
             return ({
                 ...state,
                 error,

@@ -11,9 +11,7 @@ const initialState = {
 describe('search reducer', () => {
     it('should return the initial state', () => {
         expect(reducer(undefined, {type: ''}))
-            .toEqual({
-                initialState,
-            });
+            .toEqual(initialState);
     });
 
     it('should handle SEARCH_REPOSITORIES', () => {
@@ -64,7 +62,7 @@ describe('search reducer', () => {
         // tslint:enable
         const totalCount = 1;
         expect(
-            reducer(initialState, {
+            reducer({...initialState, params}, {
                 type: SEARCH_REPOSITORIES_SUCCESS,
                 meta: {
                     params,

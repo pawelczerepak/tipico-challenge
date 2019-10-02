@@ -1,3 +1,5 @@
+import {AnyAction} from 'redux';
+
 export interface Params {
     query: string;
     sort: 'stars';
@@ -26,15 +28,6 @@ interface Repository {
     'language'?: string;
 }
 
-interface Action {
-    type: string;
-    payload?: any;
-    meta?: any;
-}
-
-interface AxiosAction {
-    type: string;
-    payload?: any;
-    meta?: any;
+interface AxiosAction extends AnyAction {
     error?: Error;
 }
