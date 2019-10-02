@@ -65,7 +65,11 @@ describe('search reducer', () => {
             reducer({...initialState, params}, {
                 type: SEARCH_REPOSITORIES_SUCCESS,
                 meta: {
-                    params,
+                    previousAction: {
+                        meta: {
+                            params,
+                        },
+                    },
                 },
                 payload: {
                     data: {

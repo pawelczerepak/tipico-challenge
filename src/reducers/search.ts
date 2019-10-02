@@ -1,4 +1,4 @@
-import {AxiosAction, Params, Response} from '../types';
+import {AxiosFailAction, AxiosSuccessAction, Params, Response} from '../types';
 import {SEARCH_REPOSITORIES, SEARCH_REPOSITORIES_FAIL, SEARCH_REPOSITORIES_SUCCESS} from '../constants/ActionTypes';
 import {AnyAction} from 'redux';
 
@@ -11,7 +11,7 @@ const initialState = {
 export default function search(state: any = initialState, action: AnyAction) {
     switch (action.type) {
         case SEARCH_REPOSITORIES: {
-            const {meta} = action as AxiosAction;
+            const {meta} = action as AnyAction;
             const {params}: { params: Params } = meta;
             return ({
                 ...state,
@@ -22,9 +22,9 @@ export default function search(state: any = initialState, action: AnyAction) {
             });
         }
         case SEARCH_REPOSITORIES_SUCCESS: {
-            const {payload, meta} = action as AxiosAction;
+            const {payload, meta} = action as AxiosSuccessAction;
             const {data}: { data: Response } = payload;
-            const {params}: { params: Params } = meta;
+            const {params}: { params: Params } = meta.previousAction.meta;
 
             return ({
                 ...state,
@@ -36,7 +36,7 @@ export default function search(state: any = initialState, action: AnyAction) {
             });
         }
         case SEARCH_REPOSITORIES_FAIL: {
-            const {error} = action as AxiosAction;
+            const {error} = action as AxiosFailAction;
             return ({
                 ...state,
                 error,

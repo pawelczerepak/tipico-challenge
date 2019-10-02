@@ -28,6 +28,12 @@ interface Repository {
     'language'?: string;
 }
 
-interface AxiosAction extends AnyAction {
-    error?: Error;
+interface AxiosFailAction extends AnyAction {
+    error: Error;
+}
+
+interface AxiosSuccessAction extends AnyAction {
+    meta: {
+        previousAction: AnyAction;
+    };
 }
