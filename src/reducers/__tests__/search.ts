@@ -1,8 +1,8 @@
 import reducer from '../search';
-import {SEARCH_REPOSITORIES, SEARCH_REPOSITORIES_FAIL, SEARCH_REPOSITORIES_SUCCESS} from '../../constants/ActionTypes';
+import {ActionTypes} from '../../constants/ActionTypes';
 
 const initialState = {
-    totalCount: 0,
+    totalCount: null,
     params: {},
     pages: {},
     error: null,
@@ -17,14 +17,13 @@ describe('search reducer', () => {
     it('should handle SEARCH_REPOSITORIES', () => {
         const params = {
             query: 'query',
-            resultsPerPage: 10,
             page: 1,
             order: 'desc',
             sort: 'stars',
         };
         expect(
             reducer(initialState, {
-                type: SEARCH_REPOSITORIES,
+                type: ActionTypes.SEARCH_REPOSITORIES,
                 meta: {
                     params,
                 },
@@ -33,13 +32,13 @@ describe('search reducer', () => {
             .toEqual({
                 ...initialState,
                 params,
+                totalCount: 0,
             });
     });
 
     it('should handle SEARCH_REPOSITORIES_SUCCESS', () => {
         const params = {
             query: 'query',
-            resultsPerPage: 10,
             page: 1,
             order: 'desc',
             sort: 'stars',
@@ -63,7 +62,7 @@ describe('search reducer', () => {
         const totalCount = 1;
         expect(
             reducer({...initialState, params}, {
-                type: SEARCH_REPOSITORIES_SUCCESS,
+                type: ActionTypes.SEARCH_REPOSITORIES_SUCCESS,
                 meta: {
                     previousAction: {
                         meta: {
@@ -93,7 +92,7 @@ describe('search reducer', () => {
         const error = new Error('error');
         expect(
             reducer(initialState, {
-                type: SEARCH_REPOSITORIES_FAIL,
+                type: ActionTypes.SEARCH_REPOSITORIES_FAIL,
                 error,
             }),
         )

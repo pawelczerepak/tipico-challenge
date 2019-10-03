@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input capture snapshot 1`] = `
+exports[`Link capture snapshot 1`] = `
 <StyledComponent
   forwardedComponent={
     Object {
@@ -11,17 +11,19 @@ exports[`Input capture snapshot 1`] = `
         "isStatic": false,
         "rules": Array [
           "
-  flex: 1;
-  margin: 0;
-  padding: 5px;
+  text-decoration: none;
+  color: #c8102e;
+  &:visited {
+    color: #91102c;
+  }
 ",
         ],
       },
-      "displayName": "styled.input",
+      "displayName": "styled.a",
       "foldedComponentIds": Array [],
       "render": [Function],
       "styledComponentId": "sc-bdVaJa",
-      "target": "input",
+      "target": "a",
       "toString": [Function],
       "usesTheme": false,
       "warnTooManyClasses": [Function],

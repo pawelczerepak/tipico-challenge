@@ -1,27 +1,28 @@
 import {AxiosFailAction, AxiosSuccessAction, Params, Response} from '../types';
-import {SEARCH_REPOSITORIES, SEARCH_REPOSITORIES_FAIL, SEARCH_REPOSITORIES_SUCCESS} from '../constants/ActionTypes';
 import {AnyAction} from 'redux';
+import {ActionTypes} from '../constants/ActionTypes';
 
 const initialState = {
-    totalCount: 0,
+    totalCount: null,
     params: {},
     pages: {},
     error: null,
 };
 export default function search(state: any = initialState, action: AnyAction) {
     switch (action.type) {
-        case SEARCH_REPOSITORIES: {
+        case ActionTypes.SEARCH_REPOSITORIES: {
             const {meta} = action as AnyAction;
             const {params}: { params: Params } = meta;
+            const differentQuery = state.params.query !== params.query;
             return ({
                 ...state,
                 params,
-                pages: state.params.query !== params.query ? {} : state.pages,
+                pages: differentQuery ? {} : state.pages,
                 error: null,
-                totalCount: 0,
+                totalCount: differentQuery ? 0 : state.totalCount,
             });
         }
-        case SEARCH_REPOSITORIES_SUCCESS: {
+        case ActionTypes.SEARCH_REPOSITORIES_SUCCESS: {
             const {payload, meta} = action as AxiosSuccessAction;
             const {data}: { data: Response } = payload;
             const {params}: { params: Params } = meta.previousAction.meta;
@@ -35,7 +36,7 @@ export default function search(state: any = initialState, action: AnyAction) {
                 totalCount: data.total_count,
             });
         }
-        case SEARCH_REPOSITORIES_FAIL: {
+        case ActionTypes.SEARCH_REPOSITORIES_FAIL: {
             const {error} = action as AxiosFailAction;
             return ({
                 ...state,

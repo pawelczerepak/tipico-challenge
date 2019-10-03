@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RepositoryList capture snapshot 1`] = `
+<styled.ul>
+  <_default
+    key="0"
+    repository={
+      Object {
+        "description": "desc",
+        "full_name": "owner/repo",
+        "html_url": "url",
+        "language": "lang",
+        "owner": Object {
+          "avatar_url": "url",
+          "html_url": "url",
+          "login": "login",
+        },
+        "stargazers_count": 34,
+      }
+    }
+  />
+</styled.ul>
+`;

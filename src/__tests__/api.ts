@@ -2,8 +2,8 @@ import {MockStoreEnhanced} from 'redux-mock-store';
 import {searchRepositories} from '../actions/search';
 import MockAdapter from 'axios-mock-adapter';
 import client from '../apiClient';
-import {SEARCH_REPOSITORIES, SEARCH_REPOSITORIES_FAIL, SEARCH_REPOSITORIES_SUCCESS} from '../constants/ActionTypes';
 import {mockStore} from '../setupTests';
+import {ActionTypes} from '../constants/ActionTypes';
 
 const mock = new MockAdapter(client);
 
@@ -57,8 +57,8 @@ describe('Search repositories', () => {
             const actions = store.getActions();
 
             expect.assertions(4);
-            expect(actions[0].type).toEqual(SEARCH_REPOSITORIES);
-            expect(actions[1].type).toEqual(SEARCH_REPOSITORIES_SUCCESS);
+            expect(actions[0].type).toEqual(ActionTypes.SEARCH_REPOSITORIES);
+            expect(actions[1].type).toEqual(ActionTypes.SEARCH_REPOSITORIES_SUCCESS);
             expect(actions[1].payload.data.items[0].full_name).toEqual('chvin/react-tetris');
             expect(actions[1].payload.data.items[1].full_name).toEqual('Binaryify/vue-tetris');
         });
@@ -75,8 +75,8 @@ describe('Search repositories', () => {
             const actions = store.getActions();
 
             expect.assertions(3);
-            expect(actions[0].type).toEqual(SEARCH_REPOSITORIES);
-            expect(actions[1].type).toEqual(SEARCH_REPOSITORIES_FAIL);
+            expect(actions[0].type).toEqual(ActionTypes.SEARCH_REPOSITORIES);
+            expect(actions[1].type).toEqual(ActionTypes.SEARCH_REPOSITORIES_FAIL);
             expect(actions[1].error).toBeInstanceOf(Error);
         });
     });

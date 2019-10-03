@@ -1,10 +1,10 @@
 import {ActionTypes} from '../constants/ActionTypes';
 import {AnyAction} from 'redux';
 
-const initialState = '';
-export default function searchInput(state: string = initialState, {type, payload}: AnyAction) {
+const initialState = 1;
+export default function currentPage(state: number = initialState, {type, payload}: AnyAction) {
     switch (type) {
-        case ActionTypes.SET_SEARCH_INPUT: {
+        case ActionTypes.SET_CURRENT_PAGE: {
             return payload;
         }
         default:

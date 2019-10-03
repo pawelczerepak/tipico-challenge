@@ -1,21 +1,21 @@
-import reducer from '../searchInput';
+import reducer from '../currentPage';
 import {ActionTypes} from '../../constants/ActionTypes';
 
-const initialState = '';
+const initialState = 1;
 
-describe('search input reducer', () => {
+describe('results page reducer', () => {
     it('should return the initial state', () => {
         expect(reducer(undefined, {type: ''}))
             .toEqual(initialState);
     });
 
-    it('should handle SET_SEARCH_INPUT', () => {
+    it('should handle SET_CURRENT_PAGE', () => {
         expect(
             reducer(initialState, {
-                type: ActionTypes.SET_SEARCH_INPUT,
-                payload: 'query',
+                type: ActionTypes.SET_CURRENT_PAGE,
+                payload: 5,
             }),
         )
-            .toEqual('query');
+            .toEqual(5);
     });
 });

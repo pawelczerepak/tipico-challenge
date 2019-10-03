@@ -1,17 +1,17 @@
 import {Params} from '../types';
 import {defaults} from 'lodash';
-import {SEARCH_REPOSITORIES} from '../constants/ActionTypes';
+import {ActionTypes} from '../constants/ActionTypes';
+import {RESULTS_PER_PAGE} from '../constants/search';
 
 export const searchRepositories = (options: Partial<Params>) => {
     const opts: Params = defaults(options, {
         sort: 'stars',
         order: 'desc',
         page: 1,
-        resultsPerPage: 10,
     }) as Params;
 
     return ({
-        type: SEARCH_REPOSITORIES,
+        type: ActionTypes.SEARCH_REPOSITORIES,
         payload: {
             request: {
                 url: '/search/repositories',
@@ -20,7 +20,7 @@ export const searchRepositories = (options: Partial<Params>) => {
                     sort: opts.sort,
                     order: opts.order,
                     page: opts.page,
-                    per_page: opts.resultsPerPage,
+                    per_page: RESULTS_PER_PAGE,
                 },
             },
         },

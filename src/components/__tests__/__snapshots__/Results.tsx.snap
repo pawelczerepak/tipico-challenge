@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Results capture snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Results)>
+    <Results
+      actions={
+        Object {
+          "searchRepositories": [Function],
+          "setCurrentPage": [Function],
+        }
+      }
+      currentPage={1}
+      error={null}
+      loadedPages={Array []}
+      page={Array []}
+      pageCount={0}
+      totalCount={null}
+    />
+  </Connect(Results)>
+</Provider>
+`;

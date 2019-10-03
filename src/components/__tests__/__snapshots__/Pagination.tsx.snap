@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link capture snapshot 1`] = `
+<styled.ul>
+  <styled.li
+    isCurrent={true}
+    key="1"
+    onClick={[Function]}
+  >
+    1
+  </styled.li>
+  <styled.li
+    isCurrent={false}
+    key="2"
+    onClick={[Function]}
+  >
+    2
+  </styled.li>
+  <styled.li
+    isCurrent={false}
+    key="5"
+    onClick={[Function]}
+  >
+    5
+  </styled.li>
+</styled.ul>
+`;

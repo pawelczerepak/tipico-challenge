@@ -4,6 +4,8 @@ exports[`SearchInput capture snapshot 1`] = `
 <styled.div>
   <styled.input
     onChange={[Function]}
+    onKeyUp={[Function]}
+    placeholder="Search GitHub"
     value="test"
   />
   <styled.div>

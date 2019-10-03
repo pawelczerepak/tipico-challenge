@@ -7,7 +7,10 @@ import toJson from 'enzyme-to-json';
 describe('SearchInput', () => {
     it('capture snapshot', () => {
         expect(toJson(shallow(
-            <SearchInput query="test" actions={{searchRepositories: jest.fn(), setSearchInput: jest.fn()}}/>,
+            <SearchInput
+                query="test"
+                actions={{searchRepositories: jest.fn(), setSearchInput: jest.fn(), setCurrentPage: jest.fn()}}
+            />,
         )))
             .toMatchSnapshot();
     });

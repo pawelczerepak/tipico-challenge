@@ -5,7 +5,6 @@ export interface Params {
     sort: 'stars';
     order: 'asc' | 'desc';
     page: number;
-    resultsPerPage: number;
 }
 
 export interface Response {
@@ -14,16 +13,16 @@ export interface Response {
 }
 
 export interface Owner {
-    'login': 'chvin';
-    'avatar_url': 'https://avatars2.githubusercontent.com/u/5383506?v=4';
-    'url': 'https://api.github.com/users/chvin';
+    'login': string;
+    'avatar_url': string;
+    'html_url': string;
 }
 
 interface Repository {
     'full_name': string;
-    'owner': SearchRepositoriesOwner;
+    'owner': Owner;
     'description': string;
-    'url': string;
+    'html_url': string;
     'stargazers_count': number;
     'language'?: string;
 }
