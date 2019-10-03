@@ -58,7 +58,7 @@ export const Results: React.FC<Props> = (props) => {
         searchInput, totalCount, error,
     } = props;
 
-    if (!totalCount && !error) {
+    if (totalCount === null && !error) {
         return null;
     }
 
