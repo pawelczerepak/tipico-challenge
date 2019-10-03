@@ -30,3 +30,4 @@ Builds the app for production to the `build` folder.
 - repository component 1h
 - pagination component 35min
 - refactoring 45min
+- bug fixes 5min
